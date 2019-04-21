@@ -58,7 +58,7 @@ apply from: "gradleScripts/setupJacoco.gradle" // Has a dependecy on ext vars in
  *		project.OS_NAMES.each {...}
  ****************************************************************************/
 
-project.ext.set("OS_NAMES", ["osx64", "win32", "win64", "linux64"])
+project.ext.set("OS_NAMES", ["osx64", "win32", "win64", "linux64", "linuxppc64le"])
 
 /*********************************************************************************
  * Imports
@@ -261,6 +261,7 @@ String getCurrentPlatformName() {
 		
 	boolean isX86_32 = archName.equals("x86") || archName.equals("i386");
 	boolean isX86_64 = archName.equals("x86_64") || archName.equals("amd64");
+	boolean isppc64le = archName.equals("ppc64le");
 
 	if (osName.startsWith("Windows")) {
 		if (isX86_32) {
@@ -273,6 +274,9 @@ String getCurrentPlatformName() {
 	else if (osName.startsWith("Linux")) {
 		if (isX86_64) {
 			return 'linux64'
+		}
+		if (isppc64le) {
+			return 'linuxppc64le'
 		}
 	}
 	else if (osName.startsWith("Mac OS X")) {

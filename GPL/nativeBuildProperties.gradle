@@ -53,6 +53,12 @@ else {
  ****************************************************************************/
 model {
 
+	toolChains {
+		gcc(Gcc) {
+			target("linuxppc64le")
+		}
+	}
+
 	// define the platforms that we support in ghidra
 	platforms {
 		win32 {
@@ -65,6 +71,10 @@ model {
 		}
 		linux64 {
 			architecture 'x86_64'
+			operatingSystem 'linux'
+		}
+		linuxppc64le {
+			architecture 'ppc64le'
 			operatingSystem 'linux'
 		}
 		osx64 {
