@@ -182,10 +182,16 @@ Others should be possible, but we do not test on them.
 Ensure bison and flex are installed and in your `PATH`.
 Now build using Gradle:
 
-On Linux:
+On Linux (x86_64):
 
 ```bash
 gradle buildNatives_linux64
+```
+
+On Linux (PowerPC 64 Little Endian):
+
+```bash
+gradle buildNatives_linuxppc64le
 ```
 
 On macOS:
